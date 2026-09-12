@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+</head>
+
+<body>
+
+    <h1>Registration Form</h1>
+
+    <form id="registrationForm">
+
+        <input type="text" id="name" placeholder="Name">
+        <br><br>
+
+        <input type="email" id="email" placeholder="Email">
+        <br><br>
+
+        <input type="password" id="password" placeholder="Password">
+        <br><br>
+
+        <input type="password" id="confirmPassword" placeholder="Confirm Password">
+        <br><br>
+
+        <input type="number" id="age" placeholder="Age">
+        <br><br>
+
+        <button type="submit">Register</button>
+
+    </form>
+
+    <p id="message"></p>
+
+    <script>
+        const form = document.getElementById("registrationForm");
+        const message = document.getElementById("message");
+
+        form.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const name = document.getElementById("name").value;
+const email = document.getElementById("email").value;
+const password = document.getElementById("password").value;
+const confirmPassword = document.getElementById("confirmPassword").value;
+const age = document.getElementById("age").value;
+
+if (name === "") {
+    message.textContent = "Please enter your name.";
+    return;
+}
+
+if (email === "") {
+    message.textContent = "Please enter your email.";
+    return;
+}
+
+if (password === "") {
+    message.textContent = "Please enter your password.";
+    return;
+}
+
+if (confirmPassword === "") {
+    message.textContent = "Please confirm your password.";
+    return;
+}
+
+if (age === "") {
+    message.textContent = "Please enter your age.";
+    return;
+}
+if (password !== confirmPassword) {
+    message.textContent = "Passwords do not match.";
+    return;
+}
+if (age < 18) {
+    message.textContent = "You must be 18 or older.";
+    return;
+}
+message.textContent = "Registration successful!";
+});
+    </script>
+
+</body>
+</html>
